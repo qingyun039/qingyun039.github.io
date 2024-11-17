@@ -1,7 +1,7 @@
 /* global */
 
 body {
-    font-family: "Bree Serif", sans-serif;
+    font-family: "Long Cang", "Bree Serif", sans-serif;
     -webkit-font-smoothing: antialiased;
     margin: 0 20px;
 }
@@ -53,7 +53,7 @@ a:hover {
 }
 
 .signatures {
-    font-family: "Permanent Marker", Impact, Charcoal, sans-serif;
+    font-family: "Liu Jian Mao Cao", "Permanent Marker", Impact, Charcoal, sans-serif;
 }
 
 .signatures a {
