@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.139.4">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://qingyun039.github.io/post/bioinfo/2024-12-02-%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%97/" />
+  <link rel="canonical" href="https://qingyun039.github.io/post/bioinfo/2024-12-02-%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%97/" /><link rel="preload" href="/js/highlight.pack.js" as="script" /><link rel="alternate" type="application/atom+xml" href="https://qingyun039.github.io/index.xml" title="青云的博客">
+
+  <script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/qingyun039.github.io\/"
+      },
+      "articleSection" : "post",
+      "name" : "这是我的数据吗",
+      "headline" : "这是我的数据吗",
+      "description" : "\u003cp\u003e我最担心的是他们随便拿一份数据，填上我的样本编号，然后就跟我说：“给，这个就是你的检测结果了”。作为一个普通人，我一定会被蒙在鼓里，无论他们给我的是什么，都只能相信。\u003c\/p\u003e\n\u003cp\u003e“肾脏病的风险是平均风险的3.26倍？”但我感觉我肾脏好着呢。\u003c\/p\u003e\n\u003cp\u003e“乳糖不耐受？”以前那么多牛奶白喝了。\u003c\/p\u003e\n\u003cp\u003e“致死性先天挛缩综合征的携带者？”貌似吧，有个亲戚确实好像是这样，但也不能确定。\u003c\/p\u003e\n\u003cp\u003e看到一些检测结果像挺符合的，但是另一些对我来说有有点荒诞。总之完全不能由检测报告里的结果推断出这就是我的数据。更进一步的，就算我能证明这不是我的数据，我又能对他们怎么样？维权吗？11年前我选择这个专业的时候，想的就是自己能弄明白一些事。有些事情虽然不能改变，但是能弄清楚它是怎么发生的，也是一种抚慰。\u003c\/p\u003e\n\u003cp\u003e我之前待过一家公司，抽了我的血测序用作对照样本，这个数据我一直保存着（就叫它北斗数据吧）。现在可以与微基因的数据比较，来印证微基因给我的数据是不是“我的数据”。\u003c\/p\u003e\n\u003ch2 id=\u0022简单的比较\u0022\u003e简单的比较\u003c\/h2\u003e\n\u003cp\u003e每个人的基因组都不一样，反过来，同一个人的基因组应该是一样的，理想情况是每一个位置的碱基都一样。可是现实世界不存在理想情况。“天下一致而百虑”，同一个受精卵，分裂着分裂着，就产生了分歧。更主要的，测序也会产生错误，也不能生成百分之百正确结果。就算你是99.999%正确了，仍有0.001%的不正确，而我们整个基因组30亿个碱基对，就算是0.001%的不正确，也有30000个位置是错的。\u003c\/p\u003e\n\u003cp\u003e可退一步想，竟然我们生活在不理想世界，我们也不必要求一个理想的结果。对于我来说，只要大概差不多就可以了。两份数据，我不要求他们的基因型完全对得上，只要能对上90%我就认为这是我的数据了。\u003c\/p\u003e\n\u003ch4 id=\u0022比较结果\u0022\u003e比较结果\u003c\/h4\u003e\n\u003cp\u003e北斗数据并不是全基因组数据，它只覆盖了某些基因区域，因此可以将它看做是微基因数据的子集。比较时将北斗数据作为参考，逐个的看微基因的数据是否与之一致。基于我只需要不那么准确的结果，所以只比较allele不进一步比较genotype。使用\u003ccode\u003ebcftools isec\u003c\/code\u003e就可以实现。以下是比较结果：\u003c\/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n      \u003ctr\u003e\n          \u003cth\u003e变异类型\u003c\/th\u003e\n          \u003cth\u003e过滤前一致的\u003c\/th\u003e\n          \u003cth\u003e过滤前不一致的\u003c\/th\u003e\n          \u003cth\u003e过滤后一致的\u003c\/th\u003e\n          \u003cth\u003e过滤后不一致的\u003c\/th\u003e\n      \u003c\/tr\u003e\n  \u003c\/thead\u003e\n  \u003ctbody\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eSNP\u003c\/td\u003e\n          \u003ctd\u003e64107\u003c\/td\u003e\n          \u003ctd\u003e9175\u003c\/td\u003e\n          \u003ctd\u003e59077\u003c\/td\u003e\n          \u003ctd\u003e8732\u003c\/td\u003e\n      \u003c\/tr\u003e\n      \u003ctr\u003e\n          \u003ctd\u003eINDEL\u003c\/td\u003e\n          \u003ctd\u003e7415\u003c\/td\u003e\n          \u003ctd\u003e3156\u003c\/td\u003e\n          \u003ctd\u003e7384\u003c\/td\u003e\n          \u003ctd\u003e2747\u003c\/td\u003e\n      \u003c\/tr\u003e\n  \u003c\/tbody\u003e\n\u003c\/table\u003e\n\u003cp\u003e从过滤后的SNP看，一致性高达87%。但是如果看IINDE，就有大部分不一致。这个留在后面看看为什么会有那么多不一致的INDEL。\u003c\/p\u003e\n\u003ch2 id=\u0022ngscheckmate\u0022\u003eNGSCheckMate\u003c\/h2\u003e\n\u003cp\u003e\u003ca href=\u0022https:\/\/github.com\/parklab\/NGSCheckMate\u0022\u003eNGSCheckMate\u003c\/a\u003e是一个用来鉴定二代测序数据文件是否来源于同一个样本的程序。它支持BAM、VCF和FASTQ文件作为输入。这里我们有VCF文件了，可以直接将北斗数据和微基因数据的VCF文件传入程序让它分析。得到的结果如下：\u003c\/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n      \u003ctr\u003e\n          \u003cth\u003eSample1\u003c\/th\u003e\n          \u003cth\u003ematched\/unmatched\u003c\/th\u003e\n          \u003cth\u003eSample2\u003c\/th\u003e\n          \u003cth\u003eCorrelation\u003c\/th\u003e\n          \u003cth\u003eDepth\u003c\/th\u003e\n      \u003c\/tr\u003e\n  \u003c\/thead\u003e\n  \u003ctbody\u003e\n      \u003ctr\u003e\n          \u003ctd\u003e北斗数据\u003c\/td\u003e\n          \u003ctd\u003ematched\u003c\/td\u003e\n          \u003ctd\u003e微基因数据\u003c\/td\u003e\n          \u003ctd\u003e0.9099\u003c\/td\u003e\n          \u003ctd\u003e1.28\u003c\/td\u003e\n      \u003c\/tr\u003e\n  \u003c\/tbody\u003e\n\u003c\/table\u003e\n\u003cp\u003e从该程序的结果来看北斗数据和微基因数据来源于同一个样本（matched），并且相关性为0.9099，是一个较高的值。这里进一步确认了这两个数据是很相似的。\u003c\/p\u003e\n\u003ch2 id=\u0022akt\u0022\u003eAKT\u003c\/h2\u003e\n\u003cp\u003e\u003ca href=\u0022https:\/\/github.com\/Illumina\/akt\u0022\u003eAKT\u003c\/a\u003e是一个用来鉴定祖源和亲缘关系的软件，它也是直接使用VCF作为输入就可以了。如果两个数据来源于同一个样本，那他们之间一定有亲缘关系。下面是AKT的分析结果：\u003c\/p\u003e\n\u003ctable\u003e\n  \u003cthead\u003e\n      \u003ctr\u003e\n          \u003cth\u003eID1\u003c\/th\u003e\n          \u003cth\u003eID2\u003c\/th\u003e\n          \u003cth\u003eIBD0\u003c\/th\u003e\n          \u003cth\u003eIBD1\u003c\/th\u003e\n          \u003cth\u003eIBD2\u003c\/th\u003e\n          \u003cth\u003eKINSHIP\u003c\/th\u003e\n          \u003cth\u003eNSNP\u003c\/th\u003e\n      \u003c\/tr\u003e\n  \u003c\/thead\u003e\n  \u003ctbody\u003e\n      \u003ctr\u003e\n          \u003ctd\u003e北斗数据\u003c\/td\u003e\n          \u003ctd\u003e微基因数据\u003c\/td\u003e\n          \u003ctd\u003e0.00000\u003c\/td\u003e\n          \u003ctd\u003e0.46141\u003c\/td\u003e\n          \u003ctd\u003e0.53859\u003c\/td\u003e\n          \u003ctd\u003e0.43053\u003c\/td\u003e\n          \u003ctd\u003e651\u003c\/td\u003e\n      \u003c\/tr\u003e\n  \u003c\/tbody\u003e\n\u003c\/table\u003e\n\u003cp\u003e这里亲缘系数为0.43053，并不能直接看出两份数据是否有关系。但是AKT还有另外的输出：\u003c\/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003eInput: kinship.txt\n1 ibd pairs above threshold\n1 filtered ibd pairs \u0026gt;= 2nd order\n0 duplicate pairs\nout.allgraph includes all relative pairs 2nd order or lower\nAttempting to resolve pedigrees.\n2 unique samples names\n1 ibd pairs to cluster\nFam0    北斗数据\nFam0    微基因数据\nType    Fam0    北斗数据    微基因数据    Sibling\u003c\/p\u003e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2024",
+      "datePublished": "2024-12-02 22:24:30 \u002b0800 CST",
+      "dateModified" : "2024-12-02 22:24:30 \u002b0800 CST",
+      "url" : "https:\/\/qingyun039.github.io\/post\/bioinfo\/2024-12-02-%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%97\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>这是我的数据吗 - 青云的博客</title>
+  <meta property="og:title" content="这是我的数据吗 - 青云的博客" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="我最担心的是他们随便拿一份数据，填上我的样本编号，然后就跟我说：“给，这个就是你的检测结果了”。作为一个普通人，我一定会被蒙在鼓里，无论他们给我的是什么，都只能相信。
+“肾脏病的风险是平均风险的3.26倍？”但我感觉我肾脏好着呢。
+“乳糖不耐受？”以前那么多牛奶白喝了。
+“致死性先天挛缩综合征的携带者？”貌似吧，有个亲戚确实好像是这样，但也不能确定。
+看到一些检测结果像挺符合的，但是另一些对我来说有有点荒诞。总之完全不能由检测报告里的结果推断出这就是我的数据。更进一步的，就算我能证明这不是我的数据，我又能对他们怎么样？维权吗？11年前我选择这个专业的时候，想的就是自己能弄明白一些事。有些事情虽然不能改变，但是能弄清楚它是怎么发生的，也是一种抚慰。
+我之前待过一家公司，抽了我的血测序用作对照样本，这个数据我一直保存着（就叫它北斗数据吧）。现在可以与微基因的数据比较，来印证微基因给我的数据是不是“我的数据”。
+简单的比较
+每个人的基因组都不一样，反过来，同一个人的基因组应该是一样的，理想情况是每一个位置的碱基都一样。可是现实世界不存在理想情况。“天下一致而百虑”，同一个受精卵，分裂着分裂着，就产生了分歧。更主要的，测序也会产生错误，也不能生成百分之百正确结果。就算你是99.999%正确了，仍有0.001%的不正确，而我们整个基因组30亿个碱基对，就算是0.001%的不正确，也有30000个位置是错的。
+可退一步想，竟然我们生活在不理想世界，我们也不必要求一个理想的结果。对于我来说，只要大概差不多就可以了。两份数据，我不要求他们的基因型完全对得上，只要能对上90%我就认为这是我的数据了。
+比较结果
+北斗数据并不是全基因组数据，它只覆盖了某些基因区域，因此可以将它看做是微基因数据的子集。比较时将北斗数据作为参考，逐个的看微基因的数据是否与之一致。基于我只需要不那么准确的结果，所以只比较allele不进一步比较genotype。使用bcftools isec就可以实现。以下是比较结果：
+
+  
+      
+          变异类型
+          过滤前一致的
+          过滤前不一致的
+          过滤后一致的
+          过滤后不一致的
+      
+  
+  
+      
+          SNP
+          64107
+          9175
+          59077
+          8732
+      
+      
+          INDEL
+          7415
+          3156
+          7384
+          2747
+      
+  
+
+从过滤后的SNP看，一致性高达87%。但是如果看IINDE，就有大部分不一致。这个留在后面看看为什么会有那么多不一致的INDEL。
+NGSCheckMate
+NGSCheckMate是一个用来鉴定二代测序数据文件是否来源于同一个样本的程序。它支持BAM、VCF和FASTQ文件作为输入。这里我们有VCF文件了，可以直接将北斗数据和微基因数据的VCF文件传入程序让它分析。得到的结果如下：
+
+  
+      
+          Sample1
+          matched/unmatched
+          Sample2
+          Correlation
+          Depth
+      
+  
+  
+      
+          北斗数据
+          matched
+          微基因数据
+          0.9099
+          1.28
+      
+  
+
+从该程序的结果来看北斗数据和微基因数据来源于同一个样本（matched），并且相关性为0.9099，是一个较高的值。这里进一步确认了这两个数据是很相似的。
+AKT
+AKT是一个用来鉴定祖源和亲缘关系的软件，它也是直接使用VCF作为输入就可以了。如果两个数据来源于同一个样本，那他们之间一定有亲缘关系。下面是AKT的分析结果：
+
+  
+      
+          ID1
+          ID2
+          IBD0
+          IBD1
+          IBD2
+          KINSHIP
+          NSNP
+      
+  
+  
+      
+          北斗数据
+          微基因数据
+          0.00000
+          0.46141
+          0.53859
+          0.43053
+          651
+      
+  
+
+这里亲缘系数为0.43053，并不能直接看出两份数据是否有关系。但是AKT还有另外的输出：
+
+Input: kinship.txt
+1 ibd pairs above threshold
+1 filtered ibd pairs &gt;= 2nd order
+0 duplicate pairs
+out.allgraph includes all relative pairs 2nd order or lower
+Attempting to resolve pedigrees.
+2 unique samples names
+1 ibd pairs to cluster
+Fam0    北斗数据
+Fam0    微基因数据
+Type    Fam0    北斗数据    微基因数据    Sibling" />
+  <meta name="description" content="我最担心的是他们随便拿一份数据，填上我的样本编号，然后就跟我说：“给，这个就是你的检测结果了”。作为一个普通人，我一定会被蒙在鼓里，无论他们给我的是什么，都只能相信。
+“肾脏病的风险是平均风险的3.26倍？”但我感觉我肾脏好着呢。
+“乳糖不耐受？”以前那么多牛奶白喝了。
+“致死性先天挛缩综合征的携带者？”貌似吧，有个亲戚确实好像是这样，但也不能确定。
+看到一些检测结果像挺符合的，但是另一些对我来说有有点荒诞。总之完全不能由检测报告里的结果推断出这就是我的数据。更进一步的，就算我能证明这不是我的数据，我又能对他们怎么样？维权吗？11年前我选择这个专业的时候，想的就是自己能弄明白一些事。有些事情虽然不能改变，但是能弄清楚它是怎么发生的，也是一种抚慰。
+我之前待过一家公司，抽了我的血测序用作对照样本，这个数据我一直保存着（就叫它北斗数据吧）。现在可以与微基因的数据比较，来印证微基因给我的数据是不是“我的数据”。
+简单的比较
+每个人的基因组都不一样，反过来，同一个人的基因组应该是一样的，理想情况是每一个位置的碱基都一样。可是现实世界不存在理想情况。“天下一致而百虑”，同一个受精卵，分裂着分裂着，就产生了分歧。更主要的，测序也会产生错误，也不能生成百分之百正确结果。就算你是99.999%正确了，仍有0.001%的不正确，而我们整个基因组30亿个碱基对，就算是0.001%的不正确，也有30000个位置是错的。
+可退一步想，竟然我们生活在不理想世界，我们也不必要求一个理想的结果。对于我来说，只要大概差不多就可以了。两份数据，我不要求他们的基因型完全对得上，只要能对上90%我就认为这是我的数据了。
+比较结果
+北斗数据并不是全基因组数据，它只覆盖了某些基因区域，因此可以将它看做是微基因数据的子集。比较时将北斗数据作为参考，逐个的看微基因的数据是否与之一致。基于我只需要不那么准确的结果，所以只比较allele不进一步比较genotype。使用bcftools isec就可以实现。以下是比较结果：
+
+  
+      
+          变异类型
+          过滤前一致的
+          过滤前不一致的
+          过滤后一致的
+          过滤后不一致的
+      
+  
+  
+      
+          SNP
+          64107
+          9175
+          59077
+          8732
+      
+      
+          INDEL
+          7415
+          3156
+          7384
+          2747
+      
+  
+
+从过滤后的SNP看，一致性高达87%。但是如果看IINDE，就有大部分不一致。这个留在后面看看为什么会有那么多不一致的INDEL。
+NGSCheckMate
+NGSCheckMate是一个用来鉴定二代测序数据文件是否来源于同一个样本的程序。它支持BAM、VCF和FASTQ文件作为输入。这里我们有VCF文件了，可以直接将北斗数据和微基因数据的VCF文件传入程序让它分析。得到的结果如下：
+
+  
+      
+          Sample1
+          matched/unmatched
+          Sample2
+          Correlation
+          Depth
+      
+  
+  
+      
+          北斗数据
+          matched
+          微基因数据
+          0.9099
+          1.28
+      
+  
+
+从该程序的结果来看北斗数据和微基因数据来源于同一个样本（matched），并且相关性为0.9099，是一个较高的值。这里进一步确认了这两个数据是很相似的。
+AKT
+AKT是一个用来鉴定祖源和亲缘关系的软件，它也是直接使用VCF作为输入就可以了。如果两个数据来源于同一个样本，那他们之间一定有亲缘关系。下面是AKT的分析结果：
+
+  
+      
+          ID1
+          ID2
+          IBD0
+          IBD1
+          IBD2
+          KINSHIP
+          NSNP
+      
+  
+  
+      
+          北斗数据
+          微基因数据
+          0.00000
+          0.46141
+          0.53859
+          0.43053
+          651
+      
+  
+
+这里亲缘系数为0.43053，并不能直接看出两份数据是否有关系。但是AKT还有另外的输出：
+
+Input: kinship.txt
+1 ibd pairs above threshold
+1 filtered ibd pairs &gt;= 2nd order
+0 duplicate pairs
+out.allgraph includes all relative pairs 2nd order or lower
+Attempting to resolve pedigrees.
+2 unique samples names
+1 ibd pairs to cluster
+Fam0    北斗数据
+Fam0    微基因数据
+Type    Fam0    北斗数据    微基因数据    Sibling" />
+  <meta property="og:locale" content="zh-cn" />
+
+  <link rel="stylesheet" href="/css/flexboxgrid-6.3.1.min.css" />
+  <link rel="stylesheet" href="/css/github-markdown.css" />
+  <link rel="stylesheet" href="/css/highlight/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+
+  
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml"
+    title="青云的博客">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker|Bree+Serif|Liu+Jian+Mao+Cao|Long+Cang" rel="stylesheet">
+  
+  
+
+  
+</head>
+
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">穷且益坚，不坠青云之志</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">这是我的数据吗</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2024-12-02 22:24:30 CST">
+                02 Dec 2024
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+          <p>我最担心的是他们随便拿一份数据，填上我的样本编号，然后就跟我说：“给，这个就是你的检测结果了”。作为一个普通人，我一定会被蒙在鼓里，无论他们给我的是什么，都只能相信。</p>
+<p>“肾脏病的风险是平均风险的3.26倍？”但我感觉我肾脏好着呢。</p>
+<p>“乳糖不耐受？”以前那么多牛奶白喝了。</p>
+<p>“致死性先天挛缩综合征的携带者？”貌似吧，有个亲戚确实好像是这样，但也不能确定。</p>
+<p>看到一些检测结果像挺符合的，但是另一些对我来说有有点荒诞。总之完全不能由检测报告里的结果推断出这就是我的数据。更进一步的，就算我能证明这不是我的数据，我又能对他们怎么样？维权吗？11年前我选择这个专业的时候，想的就是自己能弄明白一些事。有些事情虽然不能改变，但是能弄清楚它是怎么发生的，也是一种抚慰。</p>
+<p>我之前待过一家公司，抽了我的血测序用作对照样本，这个数据我一直保存着（就叫它北斗数据吧）。现在可以与微基因的数据比较，来印证微基因给我的数据是不是“我的数据”。</p>
+<h2 id="简单的比较">简单的比较</h2>
+<p>每个人的基因组都不一样，反过来，同一个人的基因组应该是一样的，理想情况是每一个位置的碱基都一样。可是现实世界不存在理想情况。“天下一致而百虑”，同一个受精卵，分裂着分裂着，就产生了分歧。更主要的，测序也会产生错误，也不能生成百分之百正确结果。就算你是99.999%正确了，仍有0.001%的不正确，而我们整个基因组30亿个碱基对，就算是0.001%的不正确，也有30000个位置是错的。</p>
+<p>可退一步想，竟然我们生活在不理想世界，我们也不必要求一个理想的结果。对于我来说，只要大概差不多就可以了。两份数据，我不要求他们的基因型完全对得上，只要能对上90%我就认为这是我的数据了。</p>
+<h4 id="比较结果">比较结果</h4>
+<p>北斗数据并不是全基因组数据，它只覆盖了某些基因区域，因此可以将它看做是微基因数据的子集。比较时将北斗数据作为参考，逐个的看微基因的数据是否与之一致。基于我只需要不那么准确的结果，所以只比较allele不进一步比较genotype。使用<code>bcftools isec</code>就可以实现。以下是比较结果：</p>
+<table>
+  <thead>
+      <tr>
+          <th>变异类型</th>
+          <th>过滤前一致的</th>
+          <th>过滤前不一致的</th>
+          <th>过滤后一致的</th>
+          <th>过滤后不一致的</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SNP</td>
+          <td>64107</td>
+          <td>9175</td>
+          <td>59077</td>
+          <td>8732</td>
+      </tr>
+      <tr>
+          <td>INDEL</td>
+          <td>7415</td>
+          <td>3156</td>
+          <td>7384</td>
+          <td>2747</td>
+      </tr>
+  </tbody>
+</table>
+<p>从过滤后的SNP看，一致性高达87%。但是如果看IINDE，就有大部分不一致。这个留在后面看看为什么会有那么多不一致的INDEL。</p>
+<h2 id="ngscheckmate">NGSCheckMate</h2>
+<p><a href="https://github.com/parklab/NGSCheckMate">NGSCheckMate</a>是一个用来鉴定二代测序数据文件是否来源于同一个样本的程序。它支持BAM、VCF和FASTQ文件作为输入。这里我们有VCF文件了，可以直接将北斗数据和微基因数据的VCF文件传入程序让它分析。得到的结果如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th>Sample1</th>
+          <th>matched/unmatched</th>
+          <th>Sample2</th>
+          <th>Correlation</th>
+          <th>Depth</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>北斗数据</td>
+          <td>matched</td>
+          <td>微基因数据</td>
+          <td>0.9099</td>
+          <td>1.28</td>
+      </tr>
+  </tbody>
+</table>
+<p>从该程序的结果来看北斗数据和微基因数据来源于同一个样本（matched），并且相关性为0.9099，是一个较高的值。这里进一步确认了这两个数据是很相似的。</p>
+<h2 id="akt">AKT</h2>
+<p><a href="https://github.com/Illumina/akt">AKT</a>是一个用来鉴定祖源和亲缘关系的软件，它也是直接使用VCF作为输入就可以了。如果两个数据来源于同一个样本，那他们之间一定有亲缘关系。下面是AKT的分析结果：</p>
+<table>
+  <thead>
+      <tr>
+          <th>ID1</th>
+          <th>ID2</th>
+          <th>IBD0</th>
+          <th>IBD1</th>
+          <th>IBD2</th>
+          <th>KINSHIP</th>
+          <th>NSNP</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>北斗数据</td>
+          <td>微基因数据</td>
+          <td>0.00000</td>
+          <td>0.46141</td>
+          <td>0.53859</td>
+          <td>0.43053</td>
+          <td>651</td>
+      </tr>
+  </tbody>
+</table>
+<p>这里亲缘系数为0.43053，并不能直接看出两份数据是否有关系。但是AKT还有另外的输出：</p>
+<blockquote>
+<p>Input: kinship.txt
+1 ibd pairs above threshold
+1 filtered ibd pairs &gt;= 2nd order
+0 duplicate pairs
+out.allgraph includes all relative pairs 2nd order or lower
+Attempting to resolve pedigrees.
+2 unique samples names
+1 ibd pairs to cluster
+Fam0    北斗数据
+Fam0    微基因数据
+Type    Fam0    北斗数据    微基因数据    Sibling</p>
+</blockquote>
+<p>这里Sibling，即软件分析认为两份数据的样本是兄弟姐妹的关系。</p>
+<h2 id="结论">结论</h2>
+<p>这里用了3种方法来确认这两份数据是否来源于同一个人，虽然每种方法的分析结果都不能十分明确的表明这数据就是来源于同一个样本，但是每个结果都说明这两份数据之间是有关系的。就二代测序数据而言，伪造一份与我有关的数据，比直接测我的样本得到数据恐怕更加困难，任何公司也没必要这么做。因此可以确定，这就是我的数据。</p>
+
+        </div>
+
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="/" target="_self">秋阴不散霜飞晚，留得枯荷听雨声</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  
+  
+    
+    
+  
+</script>
+
+  
+
+</body>
+
+</html>

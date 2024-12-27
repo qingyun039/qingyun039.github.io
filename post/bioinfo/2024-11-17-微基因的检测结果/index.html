@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Hugo 0.139.4">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="" />
+  <meta property="og:url" content="https://qingyun039.github.io/post/bioinfo/2024-11-17-%E5%BE%AE%E5%9F%BA%E5%9B%A0%E7%9A%84%E6%A3%80%E6%B5%8B%E7%BB%93%E6%9E%9C/" />
+  <link rel="canonical" href="https://qingyun039.github.io/post/bioinfo/2024-11-17-%E5%BE%AE%E5%9F%BA%E5%9B%A0%E7%9A%84%E6%A3%80%E6%B5%8B%E7%BB%93%E6%9E%9C/" /><link rel="preload" href="/js/highlight.pack.js" as="script" /><link rel="alternate" type="application/atom+xml" href="https://qingyun039.github.io/index.xml" title="青云的博客">
+
+  <script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/qingyun039.github.io\/"
+      },
+      "articleSection" : "post",
+      "name" : "微基因的检测结果",
+      "headline" : "微基因的检测结果",
+      "description" : "\u003cp\u003e登录微基因官网，在个人中心页面可以看到有3种类型的数据可以下载，分别是：\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e核心数据下载\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e测序数据下载\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003ePDF报告下载\u003c\/p\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cp\u003e点击相应的下载链接，还要输入登录密码和手机验证码才能进行下载（可能出于数据安全考虑）。另外，测序数据和PDF报告可能不能马上下载，会提示后端在进行数据准备，准备完成才能进行下载。准备时间可能要1天左右。因为全基因组的数据量比较大，这点还是可以理解的。\u003c\/p\u003e\n\u003ch2 id=\u0022核心数据\u0022\u003e核心数据\u003c\/h2\u003e\n\u003cp\u003e核心数据为一个文本文件，包含的是位点的基因型结果，是这个检测产品最核心的信息。这个文件共有4列，分别是变异ID，染色体，位置，基因型。变异包括SNP和短的INDEL，ID使用RSID或者微基因内部的ID。总共596747个位点，其中547个位点无法确认基因型。\u003c\/p\u003e\n\u003ch2 id=\u0022测序数据\u0022\u003e测序数据\u003c\/h2\u003e\n\u003cp\u003e测序数据包含3种类型的数据：\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e比对数据，为cram格式\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003e变异数据，为vcf.gz格式\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003eY染色体的比对数据，为bam格式\u003c\/p\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cp\u003e这里一看到就比较奇怪，为什么Y染色体会单独多出一个比对文件，这两者又是否有区别？结果出来之前一直以为微基因承诺的提供原始数据下载中的原始数据是指fastq文件，看到是cram的时候还有点失望。但后来一想也挺好的，说不定用自己的电脑还跑不了30X的全基因组数据呢，省的自己折腾了。\u003c\/p\u003e\n\u003ch2 id=\u0022检测报告\u0022\u003e检测报告\u003c\/h2\u003e\n\u003cp\u003e检测报告即根据核心数据的基因型推断表型，主要包含祖源分析、运动基因、营养代谢、健康风险、遗传性疾病、药物指南、遗传特征、皮肤特性、生活指导、心理特质、感染抗性、暴露风险、全基因组，总共3081页。这一大堆，估计谁也没有耐心看下去。并且你随便看看的话，会看到很多你不感兴趣的东西，并且极大多数没有意义。例如腰间盘受伤风险低、咖啡因代谢能力中、肾脏病风险是平均人群的3.26倍等等，我不认为这些对我有什么指导的意义。没有发生的，看不到发生的征兆，似乎没必要时刻提防。发生了的，肯定去医院看病，听医生的就好了。\u003c\/p\u003e",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2024",
+      "datePublished": "2024-11-17 19:49:30 \u002b0800 CST",
+      "dateModified" : "2024-11-17 19:49:30 \u002b0800 CST",
+      "url" : "https:\/\/qingyun039.github.io\/post\/bioinfo\/2024-11-17-%E5%BE%AE%E5%9F%BA%E5%9B%A0%E7%9A%84%E6%A3%80%E6%B5%8B%E7%BB%93%E6%9E%9C\/",
+      "keywords" : [  ]
+  }
+</script>
+<title>微基因的检测结果 - 青云的博客</title>
+  <meta property="og:title" content="微基因的检测结果 - 青云的博客" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="登录微基因官网，在个人中心页面可以看到有3种类型的数据可以下载，分别是：
+
+
+核心数据下载
+
+
+测序数据下载
+
+
+PDF报告下载
+
+
+点击相应的下载链接，还要输入登录密码和手机验证码才能进行下载（可能出于数据安全考虑）。另外，测序数据和PDF报告可能不能马上下载，会提示后端在进行数据准备，准备完成才能进行下载。准备时间可能要1天左右。因为全基因组的数据量比较大，这点还是可以理解的。
+核心数据
+核心数据为一个文本文件，包含的是位点的基因型结果，是这个检测产品最核心的信息。这个文件共有4列，分别是变异ID，染色体，位置，基因型。变异包括SNP和短的INDEL，ID使用RSID或者微基因内部的ID。总共596747个位点，其中547个位点无法确认基因型。
+测序数据
+测序数据包含3种类型的数据：
+
+
+比对数据，为cram格式
+
+
+变异数据，为vcf.gz格式
+
+
+Y染色体的比对数据，为bam格式
+
+
+这里一看到就比较奇怪，为什么Y染色体会单独多出一个比对文件，这两者又是否有区别？结果出来之前一直以为微基因承诺的提供原始数据下载中的原始数据是指fastq文件，看到是cram的时候还有点失望。但后来一想也挺好的，说不定用自己的电脑还跑不了30X的全基因组数据呢，省的自己折腾了。
+检测报告
+检测报告即根据核心数据的基因型推断表型，主要包含祖源分析、运动基因、营养代谢、健康风险、遗传性疾病、药物指南、遗传特征、皮肤特性、生活指导、心理特质、感染抗性、暴露风险、全基因组，总共3081页。这一大堆，估计谁也没有耐心看下去。并且你随便看看的话，会看到很多你不感兴趣的东西，并且极大多数没有意义。例如腰间盘受伤风险低、咖啡因代谢能力中、肾脏病风险是平均人群的3.26倍等等，我不认为这些对我有什么指导的意义。没有发生的，看不到发生的征兆，似乎没必要时刻提防。发生了的，肯定去医院看病，听医生的就好了。" />
+  <meta name="description" content="登录微基因官网，在个人中心页面可以看到有3种类型的数据可以下载，分别是：
+
+
+核心数据下载
+
+
+测序数据下载
+
+
+PDF报告下载
+
+
+点击相应的下载链接，还要输入登录密码和手机验证码才能进行下载（可能出于数据安全考虑）。另外，测序数据和PDF报告可能不能马上下载，会提示后端在进行数据准备，准备完成才能进行下载。准备时间可能要1天左右。因为全基因组的数据量比较大，这点还是可以理解的。
+核心数据
+核心数据为一个文本文件，包含的是位点的基因型结果，是这个检测产品最核心的信息。这个文件共有4列，分别是变异ID，染色体，位置，基因型。变异包括SNP和短的INDEL，ID使用RSID或者微基因内部的ID。总共596747个位点，其中547个位点无法确认基因型。
+测序数据
+测序数据包含3种类型的数据：
+
+
+比对数据，为cram格式
+
+
+变异数据，为vcf.gz格式
+
+
+Y染色体的比对数据，为bam格式
+
+
+这里一看到就比较奇怪，为什么Y染色体会单独多出一个比对文件，这两者又是否有区别？结果出来之前一直以为微基因承诺的提供原始数据下载中的原始数据是指fastq文件，看到是cram的时候还有点失望。但后来一想也挺好的，说不定用自己的电脑还跑不了30X的全基因组数据呢，省的自己折腾了。
+检测报告
+检测报告即根据核心数据的基因型推断表型，主要包含祖源分析、运动基因、营养代谢、健康风险、遗传性疾病、药物指南、遗传特征、皮肤特性、生活指导、心理特质、感染抗性、暴露风险、全基因组，总共3081页。这一大堆，估计谁也没有耐心看下去。并且你随便看看的话，会看到很多你不感兴趣的东西，并且极大多数没有意义。例如腰间盘受伤风险低、咖啡因代谢能力中、肾脏病风险是平均人群的3.26倍等等，我不认为这些对我有什么指导的意义。没有发生的，看不到发生的征兆，似乎没必要时刻提防。发生了的，肯定去医院看病，听医生的就好了。" />
+  <meta property="og:locale" content="zh-cn" />
+
+  <link rel="stylesheet" href="/css/flexboxgrid-6.3.1.min.css" />
+  <link rel="stylesheet" href="/css/github-markdown.css" />
+  <link rel="stylesheet" href="/css/highlight/tomorrow.min.css" />
+  <link rel="stylesheet" href="/css/index.css">
+
+  
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml"
+    title="青云的博客">
+  
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Permanent+Marker|Bree+Serif|Liu+Jian+Mao+Cao|Long+Cang" rel="stylesheet">
+  
+  
+
+  
+</head>
+
+
+<body>
+  <article class="post " id="article">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-header">
+          
+<header>
+  <div class="signatures site-title">
+    <a href="/">穷且益坚，不坠青云之志</a>
+  </div>
+</header>
+<div class="row end-xs">
+  
+  
+</div>
+<div class="header-line"></div>
+
+        </div>
+        <header class="post-header">
+          <h1 class="post-title">微基因的检测结果</h1>
+          
+          <div class="row post-desc">
+            <div class="col-xs-6">
+              
+              <time class="post-date" datetime="2024-11-17 19:49:30 CST">
+                17 Nov 2024
+              </time>
+              
+            </div>
+            <div class="col-xs-6">
+              
+            </div>
+          </div>
+          
+        </header>
+
+        <div class="post-content markdown-body">
+          
+          <p>登录微基因官网，在个人中心页面可以看到有3种类型的数据可以下载，分别是：</p>
+<ol>
+<li>
+<p>核心数据下载</p>
+</li>
+<li>
+<p>测序数据下载</p>
+</li>
+<li>
+<p>PDF报告下载</p>
+</li>
+</ol>
+<p>点击相应的下载链接，还要输入登录密码和手机验证码才能进行下载（可能出于数据安全考虑）。另外，测序数据和PDF报告可能不能马上下载，会提示后端在进行数据准备，准备完成才能进行下载。准备时间可能要1天左右。因为全基因组的数据量比较大，这点还是可以理解的。</p>
+<h2 id="核心数据">核心数据</h2>
+<p>核心数据为一个文本文件，包含的是位点的基因型结果，是这个检测产品最核心的信息。这个文件共有4列，分别是变异ID，染色体，位置，基因型。变异包括SNP和短的INDEL，ID使用RSID或者微基因内部的ID。总共596747个位点，其中547个位点无法确认基因型。</p>
+<h2 id="测序数据">测序数据</h2>
+<p>测序数据包含3种类型的数据：</p>
+<ol>
+<li>
+<p>比对数据，为cram格式</p>
+</li>
+<li>
+<p>变异数据，为vcf.gz格式</p>
+</li>
+<li>
+<p>Y染色体的比对数据，为bam格式</p>
+</li>
+</ol>
+<p>这里一看到就比较奇怪，为什么Y染色体会单独多出一个比对文件，这两者又是否有区别？结果出来之前一直以为微基因承诺的提供原始数据下载中的原始数据是指fastq文件，看到是cram的时候还有点失望。但后来一想也挺好的，说不定用自己的电脑还跑不了30X的全基因组数据呢，省的自己折腾了。</p>
+<h2 id="检测报告">检测报告</h2>
+<p>检测报告即根据核心数据的基因型推断表型，主要包含祖源分析、运动基因、营养代谢、健康风险、遗传性疾病、药物指南、遗传特征、皮肤特性、生活指导、心理特质、感染抗性、暴露风险、全基因组，总共3081页。这一大堆，估计谁也没有耐心看下去。并且你随便看看的话，会看到很多你不感兴趣的东西，并且极大多数没有意义。例如腰间盘受伤风险低、咖啡因代谢能力中、肾脏病风险是平均人群的3.26倍等等，我不认为这些对我有什么指导的意义。没有发生的，看不到发生的征兆，似乎没必要时刻提防。发生了的，肯定去医院看病，听医生的就好了。</p>
+
+        </div>
+
+        <div class="row middle-xs">
+          <div class="col-xs-12">
+            
+          </div>
+        </div>
+        
+          <div class="row">
+            <div class="col-xs-12">
+              
+            </div>
+          </div>
+
+          
+
+
+          
+          
+          <div style="height: 50px;"></div>
+          
+        
+
+        <div class="site-footer">
+  
+  <div class="site-footer-item">
+    <a href="/" target="_self">秋阴不散霜飞晚，留得枯荷听雨声</a>
+  </div>
+  
+  
+</div>
+
+      </div>
+    </div>
+  </article>
+
+  <script src="/js/highlight.pack.js"></script>
+
+
+<script>
+  hljs.initHighlightingOnLoad();
+  
+  
+  
+    
+    
+  
+</script>
+
+  
+
+</body>
+
+</html>
